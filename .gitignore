@@ -1,0 +1,10 @@
+.idea/
+.DS_Store
+
+food-backend/target/
+
+food-react/node_modules/
+food-react/build/
+
+*.log
+.env
