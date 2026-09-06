@@ -5,7 +5,7 @@ export default class ApiService {
 
 
     // production base url
-    static BASE_URL = "https://food-ordering-app-0j19.onrender.com";
+    static BASE_URL = "https://food-ordering-app-0j19.onrender.com/api";
 
     static saveToken(token) {
         localStorage.setItem("token", token);
