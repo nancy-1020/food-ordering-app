@@ -311,24 +311,24 @@ public class OrderServiceImpl  implements OrderService{
                     .append("</div>");
         }
 
-            context.setVariable("orderItemsHtml", orderItemsHtml.toString());
-            context.setVariable("totalItems", orderDTO.getOrderItems().size());
+        context.setVariable("orderItemsHtml", orderItemsHtml.toString());
+        context.setVariable("totalItems", orderDTO.getOrderItems().size());
 
 
-            String paymentLink = basePaymentLink + orderDTO.getId() + "&amount=" + orderDTO.getTotalAmount(); // Replace "yourdomain.com"
-            context.setVariable("paymentLink", paymentLink);
+        String paymentLink = basePaymentLink + orderDTO.getId() + "&amount=" + orderDTO.getTotalAmount(); // Replace "yourdomain.com"
+        context.setVariable("paymentLink", paymentLink);
 
-            // Process the Thymeleaf template to generate the HTML email body
-            String emailBody = templateEngine.process("order-confirmation", context);  // "order-confirmation" is the template name
+        // Process the Thymeleaf template to generate the HTML email body
+        String emailBody = templateEngine.process("order-confirmation", context);  // "order-confirmation" is the template name
 
-            notificationService.sendEmail(NotificationDTO.builder()
-                    .recipient(customer.getEmail())
-                    .subject(subject)
-                    .body(emailBody)
-                    .isHtml(true)
-                    .build());
+        notificationService.sendEmail(NotificationDTO.builder()
+                .recipient(customer.getEmail())
+                .subject(subject)
+                .body(emailBody)
+                .isHtml(true)
+                .build());
 
-        }
+    }
 
 }
 
